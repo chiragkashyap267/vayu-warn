@@ -40,13 +40,17 @@ function AppShell({ children }) {
   }
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar profileData={profileData} />
       {/* Alert ticker — sits between navbar and page content */}
       <div className="fixed top-16 inset-x-0 z-[49]">
         <AlertTicker />
       </div>
-      <main className="pt-16 min-h-screen">{children}</main>
+      <main className="pt-16 flex-grow">{children}</main>
+
+      <footer className="py-6 text-center text-sm text-gray-500 border-t border-gray-800 bg-gray-950 mt-auto">
+        made by chirag kashyap MCA
+      </footer>
 
       {/* Global real-time alert notifier + siren */}
       <AlertNotifier />
@@ -73,7 +77,7 @@ function AppShell({ children }) {
           error:   { iconTheme: { primary: "#ef4444", secondary: "#fff" } },
         }}
       />
-    </>
+    </div>
   );
 }
 
